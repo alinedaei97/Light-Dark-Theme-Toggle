@@ -1,0 +1,84 @@
+body {
+  --accent-color: orangered;
+  --background-color: white;
+  --text-color: black;
+  --button-text-color: var(--background-color);
+  --transition-delay: 1s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: var(--transition-delay);
+}
+body.dark {
+  --accent-color: #d0d066;
+  --background-color: #333;
+  --text-color: white;
+}
+
+#toggle {
+  width: 240px;
+  background-color: var(--accent-color);
+  color: var(--button-text-color);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  font-size: large;
+  transition: var(--transition-delay);
+  transform-origin: scale(1);
+}
+#toggle:hover,
+#toggle:focus {
+  transform: scale(1.2);
+}
+
+#sun-moon-container {
+  --rotation: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  top: 0;
+  height: 200vmin;
+  transition: 1.5s;
+  transform: rotate(calc(var(--rotation) * 1deg));
+}
+#moon {
+  color: var(--accent-color);
+  position: absolute;
+  bottom: 5%;
+  transform: rotate(180deg);
+  transition: var(--transition-delay);
+  opacity: 0;
+}
+#sun {
+  color: var(--accent-color);
+  position: absolute;
+  top: 5%;
+  transition: var(--transition-delay);
+}
+
+.dark #sun {
+  opacity: 0;
+}
+.dark #moon {
+  opacity: 1;
+}
+
+#text {
+  margin: 0;
+  margin-bottom: 0.5em;
+  /* margin-bottom: 15px; */
+}
